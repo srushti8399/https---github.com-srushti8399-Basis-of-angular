@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+
+<script>
+const names = ["tom","jerry"];
+
+let txt = "";
+names.forEach(myFunction);
+
+
+function myFunction(value,index) {
+  txt += value + " "+ index + " "+"<br>"
+}document.getElementById("result").innerHTML = txt.value;
+</script>
+
+<body>
+    <p id="result"></p>
+
+</body>
+
+
+</html>

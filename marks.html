@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            function calculate(){
+                var x=document.getElementById("sem 1").text;
+                var y=document.getElementById("sem 2").text;
+                var z=document.getElementById("sem 3").text;
+                var u=document.getElementById("sem 4").text;
+                var sum= x+y+z+u;
+                
+        
+            }
+            document.getElementById("tm").innerHtml=sum;
+            function calAvg(){
+                var avg=x+Y+Z+U/4;
+            }
+            document.getElementById("am").innerHtml=avg.value;
+        </script>
+
+        <h2 style="color:red;", aria-setsize="17 cm";>Details entered by you</h2>
+        FullName:<br>
+        <input type="text" id="name1" name="Full name">
+        <br>
+        Middle name:<br>
+        <input type="text" id="name2" name="Middle name">
+        <br>
+        <br>
+        Last name:<br>
+        <input type="text" id="name3" name="Last name">
+        <br>
+        <br>
+        <label for="gender">Select your gender</label>
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <label for="country">Country:</label>
+        <select name="country" id="country">
+            <option value="India">India</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Australia">Australia</option>
+            <option value="Iran">Iran</option>
+            <option value="Japan">Japan</option>
+        </select>
+        <br>
+        State:<br>
+        <input type="string" id="state" name="State">
+        <br>
+        Pin code:<br>
+        <input type="string" id="pin" name="Pin Code">
+        <br>
+        Sem 1:<br>
+        <input type="string" id="sem 1" name="marks1" onkeyup="calculate()">
+        <br>
+        Sem 2:<br>
+        <input type="string" id="sem 2" name="marke2" onkeyup="calculate()">
+        <br>
+        Sem 3:<br>
+        <input type="string" id="sem 3" name="marks3" onkeyup="calculate()">
+        <br>
+        Sem 4:<br>
+        <input type="string" id="sem 4" name="marks4" onkeyup="calculate()">
+        <br>
+        Total Marks:<br>
+        <input type="text" id="tm" name="marks4" onkeyup="calculate()">
+        <br>
+        Average marks:<br>
+        <input type="text" id="am" name="marks4" onkeypress="calculate()">
+        <br>
+
+        <br>
+        <input id="btn" type="button" value="confirm" onclick="calculate()">
+        <br>
+    </body>
+</html>

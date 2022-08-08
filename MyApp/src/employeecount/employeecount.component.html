@@ -1,0 +1,9 @@
+ <span>Display:</span>
+<input type="radio"(change)="onRadioButtonSelectionChange()"
+[(ngModel)]="selectedRBValue"  value="All" name="empoptions">{{ 'All ('+allCount+')'}}
+
+<input type="radio" (change)="onRadioButtonSelectionChange()"
+[(ngModel)]="selectedRBValue" value="Male" name="empoptions">{{'Male('+maleCount+')'}}
+
+<input type="radio" (change)="onRadioButtonSelectionChange()"
+[(ngModel)]="selectedRBValue"  value="Female" name="empoptions">{{'Female('+femaleCount+')'}} 

@@ -1,0 +1,353 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-6 ">
+        <form>
+            
+
+            <h2 style="color:red;", aria-setsize="17 cm";>Details entered by you</h2>
+            <label><b>Firstname</b></label>
+            <input type="text" id="fname"><br><p id="fnameerror"></p>
+            <label><b>Middlename</b></label>
+            <input type="text" id="mname"><br><p id="mnameerror"></p>
+            <label><b>Lastname</b></label>
+            <input type="text" id="lname"><br><p id="lnameerror"></p>
+            <label><b>Gender</b></label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">female</option><p></p>
+            </select><br>
+            <label><b>Age</b></label>
+            <input type="text" id="age"><p id="ageerror"></p>
+            <label><b>Country</b></label>
+            <select id="country">
+                <option value="India">India</option>
+                <option value="US">US</option>
+                <option value="Iran">Iran</option>
+                <option value="Japan">Japan</option>
+            </select><br>
+
+            <label><b>state</b></label>
+            <input type="text" id="state"><br><p></p>
+            <label><b>pincode</b></label>
+            <input type="text" id="pcode"><br><p></p>
+            <label><b>Date of Birth</b></label>
+            <input type="date" id="dates"><br><p></p>
+
+            <label><b>Sem1</b></label>
+            <input type="text" id="sem1" onkeyup="Sum()" value=0><p id="sem1err"></p><br>
+            <label><b>Sem2</b></label>
+            <input type="text" id="sem2" onkeyup="Sum()" value=0><p id="sem2err"></p><br>
+            <label><b>Sem3</b></label>
+            <input type="text" id="sem3" onkeyup="Sum()" value=0><p id="sem3err"></p><br>
+            <label><b>Sem4</b></label>
+            <input type="text" id="sem4" onkeyup="Sum()" value=0><p id="sem4err"></p><br>
+
+
+            <label><b>Total marks</b></label>
+            <input type="text" id="tmarks" value=0><br><p></p>
+            <label><b>Average Marks</b></label>
+            <input type="text" id="avg" value=0.0><br><p></p>
+
+            <input type="button" value="Submit" onclick="displayDetails()">
+
+
+        </form>
+       
+    </div>
+
+
+    <div class="col-sm-9 col-md-6 col-lg-6 bg-info">
+        <h2 style="color:rgb(0, 0, 0) ;"><em>Entered Details:</em></h2>
+        <label>Firstname</label>
+        <p id="dname"></p>
+        <p style="color:red ;" id="p1"></p>
+
+        <label>Middlename</label>
+        <p id="mfname"></p>
+        <p style="color:red ;" id="p2"></p>
+
+        <label>Lastname</label>
+        <p id="lfname"></p>
+        <p style="color:red ;" id="p3"></p>
+
+        <label>gender</label>
+        <p id="gname"></p>
+        <p style="color:red ;" id="p6"></p>
+
+        <label>Age</label>
+        <p id="aged"></p>
+        <p style="color:red ;" id="p11"></p>
+
+        <label>country</label>
+        <p id="cname"></p>
+        <p style="color:red ;" id="p7"></p>
+
+        <label>State</label>
+        <p id="stname"></p>
+        <p style="color:red ;" id="p4"></p>
+
+        <label>pincode</label>
+        <p id="pincode"></p>
+        <p style="color:red ;" id="p5"></p>
+
+        <label>Date of Birth</label>
+        <p id="date"></p>
+        <p style="color:red ;" id="p10"></p>
+
+        <label>Total marks</label>
+        <p id="totalmarks"></p>
+        <p style="color:red ;" id="p8"></p>
+
+        <label>Average marks</label>
+        <p id="avgmarks"></p>
+        <p style="color:red ;" id="p9"></p>
+
+
+
+    </div>
+</div>
+</div>
+
+    <script>
+        //json object
+
+       /* let myObj={
+            "firstname":document.getElementById("fname").value,
+            "middlename":document.getElementById("mname").value,
+            "lastname":document.getElementById("lname").value,
+            "state":document.getElementById("state").value,
+            "pincode":document.getElementById("pcode").value,
+            "gender":gender.options[gender.selectedIndex].value,
+            "country":country.options[country.selectedIndex].value,
+            "totalmarks":document.getElementById("tmarks").value,
+            "averagemarks":document.getElementById("avg").value,
+            "date":document.getElementById("dates").value,
+            "age":document.getElementById("age").value
+        }
+        const myJson=JSON.stringify(myObj);
+        localStorage.setItem("testJSON",myJson);
+        let text=localStorage.getItem("testJSON");
+        let obj=JSON.parse(text);
+        document.getElementById("p1").innerHTML = obj.firstname;
+        document.getElementById("p2").innerHTML = obj.middlename;
+        document.getElementById("p3").innerHTML = obj.lastname;
+        document.getElementById("p4").innerHTML = obj.state;
+        document.getElementById("p5").innerHTML = obj.pincode;
+        document.getElementById("p6").innerHTML = obj.gender;
+        document.getElementById("p7").innerHTML = obj.country;
+        document.getElementById("p8").innerHTML = obj.totalmarks;
+        document.getElementById("p9").innerHTML = obj.averagemarks;
+        document.getElementById("p10").innerHTML = obj.date;
+        document.getElementById("p11").innerHTML = obj.age;
+
+      /*  document.getElementById("p1").innerHTML = myObj.firstname;
+        document.getElementById("p2").innerHTML = myObj.middlename;
+        document.getElementById("p3").innerHTML = myObj.lastname;
+        document.getElementById("p4").innerHTML = myObj.state;
+        document.getElementById("p5").innerHTML = myObj.pincode;
+        document.getElementById("p6").innerHTML = myObj.gender;
+        document.getElementById("p7").innerHTML = myObj.country;
+        document.getElementById("p8").innerHTML = myObj.totalmarks;
+        document.getElementById("p9").innerHTML = myObj.averagemarks;
+        document.getElementById("p10").innerHTML = myObj.date;
+        document.getElementById("p11").innerHTML = myObj.age;*/
+
+
+        //Display function
+        function displayDetails() {
+            document.getElementById("dname").innerHTML = document.getElementById("fname").value;
+            document.getElementById("mfname").innerHTML = document.getElementById("mname").value;
+            document.getElementById("lfname").innerHTML = document.getElementById("lname").value;
+            let message=" ";
+            try {
+                name1=document.getElementById("fname").value;
+                if(name1 =="" || name1==null){
+                    message="Enter first name";
+                    throw message;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("fnameerror").innerHTML=message;
+    
+  }
+      let message1=" ";
+  try {
+                name2=document.getElementById("mname").value;
+                if(name2=="" || name2==null){
+                    message1="Enter middle name";
+                    throw message1;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("mnameerror").innerHTML=message1;
+    
+  }
+  let message2=" ";
+  try {
+                name3=document.getElementById("lname").value;
+                if(name3=="" || name3==null){
+                    message2="Enter last name";
+                    throw message1;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("lnameerror").innerHTML=message1;
+    
+  }
+           
+
+            var g = document.getElementById("gender");
+            document.getElementById("gname").innerHTML = g.options[g.selectedIndex].value;
+
+            document.getElementById("aged").innerHTML = document.getElementById("age").value;
+            let message3=" ";
+  try {
+                age1=document.getElementById("age").value;
+                if(age1<=0 || age1==null ||age1>=100){
+                    message3="Enter valid age";
+                    throw message3;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("ageerror").innerHTML=message3;
+    
+  }
+
+            var ctry = document.getElementById("country");
+            document.getElementById("cname").innerHTML = ctry.options[ctry.selectedIndex].value;
+
+            document.getElementById("stname").innerHTML = document.getElementById("state").value;
+            document.getElementById("pincode").innerHTML = document.getElementById("pcode").value;
+
+            document.getElementById("date").innerHTML = document.getElementById("dates").value;
+
+            document.getElementById("totalmarks").innerHTML = document.getElementById("tmarks").value;
+            document.getElementById("avgmarks").innerHTML = document.getElementById("avg").value;
+        }
+
+        function Sum() {
+            var num1 = 0;
+            var num2 = 0;
+            var num3 = 0;
+            var num4 = 0;
+            var total = 0;
+            var avg = 0.0;
+            num1 = parseInt(document.getElementById("sem1").value);
+            num2 = parseInt(document.getElementById("sem2").value);
+            num3 = parseInt(document.getElementById("sem3").value);
+            num4 = parseInt(document.getElementById("sem4").value);
+            let message4=" ";
+  try {
+                sem1m=document.getElementById("num1").value;
+                if(sem1m>100){
+                    message4="Marks are not greater than 100";
+                    throw message4;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("sem1err").innerHTML=message4;
+    
+  }
+  let message5=" ";
+  try {
+                sem2m=document.getElementById("num2").value;
+                if(sem2m > 100){
+                    message4="Marks are not greater than 100";
+                    throw message5;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("sem2err").innerHTML=message4;
+    
+  }
+  let message6=" ";
+  try {
+                sem3m=document.getElementById("num3").value;
+                if(sem3m > 100){
+                    message4="Marks are not greater than 100";
+                    throw message6;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("sem3err").innerHTML=message6;
+    
+  }
+  let message7=" ";
+  try {
+                sem4m=document.getElementById("num4").value;
+                if(sem3m > 100){
+                    message7="Marks are not greater than 100";
+                    throw message7;
+                }
+    
+  }
+  catch(err) {
+          document.getElementById("sem4err").innerHTML=message7;
+    
+  }
+
+
+
+            total = num1 + num2 + num3 + num4;
+            avg = total / 4;
+            document.getElementById("tmarks").value = total;
+
+            document.getElementById("avg").value = avg;
+        }  
+               
+   
+            let myObj={
+            "firstname":document.getElementById("dname").value,
+            "middlename":document.getElementById("mfname").value,
+            "lastname":document.getElementById("lfname").value,
+            "state":document.getElementById("stname").value,
+            "pincode":document.getElementById("pincode").value,
+            "gender":gender.options[gender.selectedIndex].value,
+            "country":country.options[country.selectedIndex].value,
+            "totalmarks":document.getElementById("totalmarks").value,
+            "averagemarks":document.getElementById("avgmarks").value,
+            "date":document.getElementById("date").value,
+            "age":document.getElementById("aged").value
+        };
+        const myJson=JSON.stringify(myObj);
+        localStorage.setItem("testJSON",myJson);
+        let text=localStorage.getItem("testJSON");
+        let obj=JSON.parse();
+        document.getElementById("p1").innerHTML = obj.firstname;
+        document.getElementById("p2").innerHTML = obj.middlename;
+        document.getElementById("p3").innerHTML = obj.lastname;
+        document.getElementById("p4").innerHTML = obj.state;
+        document.getElementById("p5").innerHTML = obj.pincode;
+        document.getElementById("p6").innerHTML = obj.gender;
+        document.getElementById("p7").innerHTML = obj.country;
+        document.getElementById("p8").innerHTML = obj.totalmarks;
+        document.getElementById("p9").innerHTML = obj.averagemarks;
+        document.getElementById("p10").innerHTML = obj.date;
+        document.getElementById("p11").innerHTML = obj.age;
+
+
+    </script>
+
+</body>
+
+</html>

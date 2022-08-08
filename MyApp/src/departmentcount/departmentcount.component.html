@@ -1,0 +1,29 @@
+<label for="departments">Display</label>
+<select id="departments" name="departments" (change)="onCheckboxSelectionChange1()" [(ngModel)]="selectedRBValue1">
+    <option value="Total" >{{ 'Total ('+TotalCount+')'}}</option>
+    <option value="HR" >{{'HR('+HRCount+')'}}</option>
+    <option value="Technical" >{{'Technical('+TechnicalCount+')'}}</option>
+
+
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <select (change)="onCheckboxSelectionChange1()"
+[(ngModel)]="selectedRBValue1"  option value="Total" name="empoptions1">{{ 'Total ('+TotalCount+')'}}</option>
+
+<select  (change)="onCheckboxSelectionChange1()"
+[(ngModel)]="selectedRBValue1" option value="HR" name="empoptions1">{{'HR('+HRCount+')'}}</option>
+
+<select  (change)="onCheckboxSelectionChange1()"
+[(ngModel)]="selectedRBValue1"  option value="Technical" name="empoptions1">{{'Technical('+TechnicalCount+')'}}</option>
+</select> -->

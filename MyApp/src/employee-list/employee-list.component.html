@@ -1,0 +1,60 @@
+<button (click)="toggleShowTable()" class="btn btn-primary" (click)="changeText()">{{btnVal}}</button>
+<br><br>
+
+
+
+<emp-count [allCount]="getTotalEmployeeCount()"
+[maleCount]="getTotalmaleCount()"
+[femaleCount]="getTotalfemaleCount()"
+(rbselectionChange)="gettingSelectedRadioButtonValue($event)"></emp-count><br>
+<br>
+<button (click)="toggleShowTable1()" class="btn btn-primary" (click)="changeText1()">{{btnVal1}}</button>
+<br>
+<br>
+<dept-count [TotalCount]="getTotalDepartmentCount()"
+[HRCount]="getTotalHRCount()" 
+[TechnicalCount]="getTotalTechnicalCount()"
+(rbselectionChange1)="gettingSelectedRadioButtonValuedept($event)"
+></dept-count>
+
+
+
+<div class="col-md-6">
+<table class="table table-bordered" border="1" *ngIf ='showEmpTable'>
+    <tr *ngIf="employees.length>0">
+        <th>Employee Code</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Annual Salary</th>
+    </tr>
+    <ng-container *ngFor='let emp of employees'>
+        <tr  *ngIf="selectedRbValue=='All' || emp.gender==selectedRbValue" >
+        <td>{{emp.code}}</td>
+        <td>{{emp.name | EmployeeGender:emp.gender}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.salary}}</td>
+    </tr>
+</ng-container>
+    <tr *ngIf="employees.length==0">
+        <td colspan="4"> Employees record not found</td>
+
+    </tr>
+</table>
+</div>
+<table  class="table table-bordered" border="1" *ngIf="showDeptTable">
+    <tr>
+        <th>Department Name</th>
+        <th>Designation</th>
+    </tr>
+    <ng-container *ngFor="let dept of department">
+    <tr *ngIf="selectedRbValuedept=='Total' || dept.department_name==selectedRbValuedept">
+        <td>{{dept.department_name |DepartmentTitle:dept.Designation}}</td>
+        <td>{{dept.Designation}}</td>
+
+    </tr>
+</ng-container>
+    <tr *ngIf="department.length==0">
+        <td colspan="2">No department is available</td>
+
+    </tr>
+</table>

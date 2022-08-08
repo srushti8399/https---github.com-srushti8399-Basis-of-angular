@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function changefun(){
+                document.getElementsByClassName("base")[1].innerHTML="This is changed paragraph";
+            }
+            function showAlert(){
+                window.alert("Alert");
+               alert(document.getElementById("second").innerHTM);
+               
+            }
+            var x=document.getElementById("num1").value;
+                var y=document.getElementById("num2").value;
+            function Addition(){
+                var z= x+y;
+                alert(z);
+                document.getElementById("output").innerHTML=z;
+                /*var x=3;
+                var y=4;
+                var z= x+y;
+                console.log(z);*/
+
+            }
+        </script>
+
+    </head>
+
+
+    <body>
+        <h2>Concepts of javascript</h2>
+        <p id="first" class="base abc" name="ParaText">This is a paragraph</p>
+        <p id="second" class="base abc" name="ParaText">This is added paragraph</p>
+        <p id="third"  class="base abc" name="ParaText">Alert showing this page</p>
+        Enter number<br>
+        <input type="number" id="num1">
+        <br>
+        Enter number<br>
+        <input type="number" id="num2">
+        <br>
+        <input type="button" onclick="showAlert()" value="click to change">
+        <input type="button" onclick="window.print()" value="print">
+        <input type="button" id="output" onclick="Addition()" value="Add">
+
+    </body>
+</html>

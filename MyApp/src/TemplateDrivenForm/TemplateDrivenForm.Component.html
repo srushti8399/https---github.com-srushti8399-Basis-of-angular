@@ -1,0 +1,146 @@
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: 50px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+         <div class="card-body py-5 px-md-5">
+
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="fw-bold mb-5">Employee Form</h2>
+              <form class="center" #userForm="ngForm"  (ngSubmit)="saveUser(userForm)" >
+                <!-- 3 column grid layout with text inputs for the first, middle and last names -->
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <div class="form-outline">
+                      <mat-form-field appearance="fill">
+                        <mat-label>FirstName</mat-label>
+                        <input required id="firstname" matInput placeholder="Enter FirstName" #fname="ngModel" name="firstname" [(ngModel)]="user.name"/>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="fname.invalid">
+                          Name is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="form-outline">
+                      <mat-form-field appearance="fill">
+                        <mat-label>MiddleName</mat-label>
+                        <input  required id="middlename"  matInput placeholder="Enter MiddleName" #mname="ngModel"  name="Middlename" [(ngModel)]="Middlename" />
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="mname.invalid">
+                          Name is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="form-outline">
+                      <mat-form-field appearance="fill">
+                        <mat-label>LastName</mat-label>
+                        <input required id="lastname" matInput placeholder="Enter LastName" #lastname1="ngModel" name="Lname" [(ngModel)]="lastname"/>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error *ngIf="lastname1.invalid">
+                          Name is <strong>required</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                <div class="form-outline">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Gender</mat-label>
+                    <mat-select selectValidate name="gender" #gender="ngModel" [(ngModel)]="user.gender">
+                  <mat-option *ngFor="let gen of genders" [value]="gen.viewValue">
+                        {{gen.Text}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="gender.errors?.['defaultSelected']">
+                        Gender is <strong>required</strong>
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="DOB" class="form-control" ml-4  name="Dob"/>
+                  <label class="form-label" for="DOB">Date of Birth</label>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="Pincode" class="form-control" name="pincode" />
+                  <label class="form-label" for="Pincode">Pincode</label>
+                </div>
+              </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-4">
+                <div class="form-outline">
+
+		<select placeholder="Country" [(ngModel)]="selectedCountry" (change)="changeCountry($event)" name="country">
+			<option>Choose Country</option>
+			<option *ngFor="let country of Countries">{{country.name}}</option>
+		</select>
+
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="form-outline">
+                  <select placeholder="State" (change)="changeState($event)" name="state">
+                    <option>Choose State</option>
+                    <option *ngFor="let state of states">{{state.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="form-outline">
+		<select placeholder="City" name="city">
+			<option>Choose City</option>
+			<option *ngFor="let city of cities">{{city}}</option>
+		</select>
+                </div>
+              </div>
+                </div>  
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+        
+            <div class="col-sm-10">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email Id</mat-label>
+                    <input required id="emailId" email type="text" #emailControl="ngModel"  name="emailId" [(ngModel)]="user.email" matInput >
+                    <mat-error *ngIf="emailControl.invalid && emailControl.value==''">
+                        Email is <strong>required</strong>
+                      </mat-error>
+                      <mat-error *ngIf="emailControl.errors?.['email']">
+                        Email is <strong>incorrect</strong>
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="password" class="form-control" ml-4  name="password"/>
+                    <label class="form-label" for="password">Enter password</label>
+                  </div>
+                </div>
+                </div>
+                <button mat-flat-button color="primary" name="submitbutton">Submit</button>
+
+              </form>
+                  
+      
+   
+   
+   
+   
+   
+                
+    
+   
