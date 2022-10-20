@@ -15,8 +15,16 @@ export class EmployeeCountComponent{
     @Input()
     femaleCount:number=0;
 
+    @Input()
+    ContractualCount:number=0;
+
+    @Input()
+    PermanantCount:number=0;
+
     
     selectedRBValue:string="All";
+    selectedSlValue:string="Contractual";
+
 
     
     @Output()
@@ -28,4 +36,12 @@ export class EmployeeCountComponent{
     this.rbselectionChange.emit(this.selectedRBValue);
 
     }
+
+    @Output()
+   slselectionChange:EventEmitter<string> = new EventEmitter<string>();
+
+   onRadioButtonSelectionChange1(){
+    // console.log("Child = "+this.selectedRBValue);
+ this.slselectionChange.emit(this.selectedSlValue);
+}
 }

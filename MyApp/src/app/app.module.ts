@@ -28,6 +28,8 @@ import { SelectValidator } from 'src/Shared/Select.Directive.Validator';
 import { AccountModule } from './account/account.module';
 import { HrModule } from './hr/hr.module';
 import { Employee1Module } from './employee1/employee1.module';
+import { EmployeeServices } from 'src/EmployeeService/Employee.service';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -50,10 +52,11 @@ import { Employee1Module } from './employee1/employee1.module';
     MatFormFieldModule,
     AccountModule,
     HrModule,
-    Employee1Module
+    Employee1Module,
+    MatTableModule
   
   ],
-  providers: [],
+  providers: [EmployeeServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

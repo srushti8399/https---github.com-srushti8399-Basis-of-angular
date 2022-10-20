@@ -1,9 +1,28 @@
- <span>Display:</span>
-<input type="radio"(change)="onRadioButtonSelectionChange()"
-[(ngModel)]="selectedRBValue"  value="All" name="empoptions">{{ 'All ('+allCount+')'}}
+<div class="row">
+    <div class="col-md-6 mb-4">
+<label for="employees">Display</label>
 
-<input type="radio" (change)="onRadioButtonSelectionChange()"
-[(ngModel)]="selectedRBValue" value="Male" name="empoptions">{{'Male('+maleCount+')'}}
 
-<input type="radio" (change)="onRadioButtonSelectionChange()"
-[(ngModel)]="selectedRBValue"  value="Female" name="empoptions">{{'Female('+femaleCount+')'}} 
+
+<select id="employees" name="employees" (change)="onRadioButtonSelectionChange()" [(ngModel)]="selectedRBValue">
+    <option value="Total" >{{ 'All ('+allCount+')'}}</option>
+    <option value="Male" >{{'Male('+maleCount+')'}}</option>
+    <option value="Female" >{{'Female('+femaleCount+')'}}</option>
+
+
+</select>
+</div>
+
+<div class="col-md-6 mb-4">
+    <label for="employees">Display</label>
+    
+    
+    
+    <select id="employees" name="employees" (change)="onRadioButtonSelectionChange()" [(ngModel)]="selectedRBValue">
+        <option value="Contractual" >{{'Contractual('+ContractualCount+')'}}</option>
+        <option value="permanant" >{{'Permanant('+PermanantCount+')'}}</option>
+    
+    
+    </select>
+    </div>
+</div>
